@@ -2,24 +2,33 @@
 
 public class RomanConvert
 {
-    public static string Solution(int value)
+    public static string Solution(int number)
     {
-        if(value>0 && value <= 10)
-            return GetRomanFromOneDigit(value);
-        return "not found";
+        var numberString = number.ToString();
+        var length = numberString.Length;
+        
+        var romanNumber =
+            string.Join("", numberString.Select(((c, i) =>
+                RomanNumeralsConstants.RomanNumerals[length - i][(int)Char.GetNumericValue(c)])));
+
+        return romanNumber;
+    }
+    
+    public static string CodeWarsSolution(int n)
+    {
+        string roman = "";
+        string[] thousand = {"","M","MM","MMM"};
+        string[] hundred = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+        string[] ten = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        string[] one = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+  
+        roman += thousand[(n/1000)%10];
+        roman += hundred[(n/100)%10];
+        roman += ten[(n/10)%10];
+        roman += one[n%10];
+        
+        return roman;
     }
 
-    private static string GetRomanFromOneDigit(int value)
-    {
-        if (Math.Abs(RomanSymbol.I - value) <= 2)
-            return RomanSymbol.I;
-        
-        if (Math.Abs(RomanSymbol.V - value) <= 2)
-            return RomanSymbol.V;
-        
-        if (Math.Abs(RomanSymbol.X - value) <= 2)
-            return RomanSymbol.X;
-
-        return "not valid";
-    }
+    
 }
