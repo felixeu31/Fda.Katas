@@ -42,3 +42,8 @@ As the KATA has 2 iterations I decided to do a simpler solution and then improve
 
 
 ## Iteration 2
+
+- In order to encapsulate every validation I decided to create a generic abstraction
+- Then I followed TDD creating test and separated implementations for each validation
+- Then I rewritted the PasswordValidatorTestsOop to test the new implementation of the PasswordValidatorOop usin the news validations
+- Then I created a Factory class to build different PasswordValidations with specific validations
