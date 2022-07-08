@@ -2,7 +2,7 @@ using FluentAssertions;
 
 namespace Fda.Katas.PasswordValidation;
 
-public class Tests
+public class PaswordValidatorTests
 {
     [SetUp]
     public void Setup()
