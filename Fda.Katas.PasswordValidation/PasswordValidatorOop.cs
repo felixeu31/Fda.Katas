@@ -6,16 +6,9 @@ public class PasswordValidatorOop
 {
     private readonly List<IValidation> _validations;
     
-    public PasswordValidatorOop()
+    public PasswordValidatorOop(List<IValidation> validations)
     {
-        _validations = new List<IValidation>()
-        {
-            new MinimumCharacterValidation(8),
-            new UpperCaseValidation(),
-            new LowerCaseValidation(),
-            new NumberCaseValidation(),
-            new UnderScoreCaseValidation()
-        };
+        _validations = validations;
     }
     
     public bool IsValid(string input)
