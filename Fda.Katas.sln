@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.MiddleCharacter",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.RomanNumeralsEncoder", "Fda.Katas.RomanNumeralsEncoder\Fda.Katas.RomanNumeralsEncoder.csproj", "{A2BE396E-F46C-43DD-8452-C43724518212}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.PasswordValidation", "Fda.Katas.PasswordValidation\Fda.Katas.PasswordValidation.csproj", "{18938556-1B3D-4FD3-9F5C-C7CE4A6FAAB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A2BE396E-F46C-43DD-8452-C43724518212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BE396E-F46C-43DD-8452-C43724518212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BE396E-F46C-43DD-8452-C43724518212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18938556-1B3D-4FD3-9F5C-C7CE4A6FAAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18938556-1B3D-4FD3-9F5C-C7CE4A6FAAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18938556-1B3D-4FD3-9F5C-C7CE4A6FAAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18938556-1B3D-4FD3-9F5C-C7CE4A6FAAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
