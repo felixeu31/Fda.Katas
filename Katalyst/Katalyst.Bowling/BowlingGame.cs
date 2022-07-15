@@ -2,16 +2,13 @@
 
 public class BowlingGame
 {
-    private int _score = 0;
+    private List<BallPlay> BallPlays = new List<BallPlay>();
 
     public void Roll(char c)
     {
-        if (c == 'x')
-            _score += 10;
-        else if (int.TryParse(c.ToString(), out int aux))
-            _score += aux;
+        BallPlays.Add(BallPlay.FromChar(c));
     }
-    
+
     public void Roll(string c)
     {
         foreach (var pinCount in c)
@@ -22,6 +19,6 @@ public class BowlingGame
 
     public int Score()
     {
-        return _score;
+        return BallPlays.Sum(x => x.Score());
     }
 }
