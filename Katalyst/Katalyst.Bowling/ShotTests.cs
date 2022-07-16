@@ -7,36 +7,28 @@ namespace Katalyst.Bowling;
 public class ShotTests
 {
     [Test]
-    public void Shot_IsStrike_WhenX()
+    [TestCase(-1)]
+    [TestCase(11)]
+    public void Shot_ThrowsException_WhenInvalidShotValue(int pinsThrown)
     {
-        var shot = Shot.FromChar('x');
-        
-        shot.IsStrike().Should().BeTrue();
+        Action buildInvalidShot = () => Shot.FromScalar(pinsThrown);
+
+        buildInvalidShot.Should().Throw<ArgumentOutOfRangeException>();
     }
 
     [Test]
-    public void Shot_IsSpare_WhenBackslash()
+    public void Shot_ValidNumberOfPins_CreateValidShot()
     {
-        var shot = Shot.FromChar('/');
+        var shot = Shot.FromScalar(3);
 
-        shot.IsSpare().Should().BeTrue();
+        ((int)shot).Should().Be(3);
     }
     
     [Test]
-    [TestCase('0')]
-    [TestCase('1')]
-    [TestCase('9')]
-    public void Shot_IsPinNumber_WhenValidNumber(char shotValue)
+    public void Shot_Strike_CreateValidShot()
     {
-        var shot = Shot.FromChar(shotValue);
+        var shot = Shot.FromStrike();
 
-        shot.IsANumberOfPins().Should().BeTrue();
-    }
-    [Test]
-    public void Shot_ThrowsException_WhenInvalidShotValue()
-    {
-        Action buildInvalidShot = () => Shot.FromChar('l');
-
-        buildInvalidShot.Should().Throw<ArgumentOutOfRangeException>();
+        ((int)shot).Should().Be(10);
     }
 }

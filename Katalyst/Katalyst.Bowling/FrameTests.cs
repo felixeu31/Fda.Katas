@@ -51,4 +51,26 @@ public class FrameTests
 
         buildInvalidShot.Should().Throw<Exception>();
     }
+    
+    [Test]
+    public void Frame_IsStrike_When10PinsDownWithOneShot()
+    {
+        var frame = new Frame(1);
+        
+        frame.AddShot('x');
+        
+        frame.IsStrike().Should().BeTrue();
+    }
+
+    [Test]
+    public void Shot_IsSpare_WhenBackslash()
+    {
+        var frame = new Frame(1);
+        
+        frame.AddShot('6');
+        frame.AddShot('/');
+
+        frame.IsSpare().Should().BeTrue();
+    }
+    
 }

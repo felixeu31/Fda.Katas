@@ -2,51 +2,33 @@
 
 public class Shot
 {
-    private static readonly char[] ValidBallPlays = new []{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'x', '/', '-'};
-    private readonly char _value;
+    public readonly int PinsThrown;
 
-    private Shot(char c)
+    private Shot(int pinsThrown)
     {
-        if (!ValidBallPlays.Contains(c))
-            throw new ArgumentOutOfRangeException("ballPlay");
+        if (pinsThrown < 0 || pinsThrown > BowlingConstants.TotalNumberOfPins)
+            throw new ArgumentOutOfRangeException();
         
-        _value = c;
+        PinsThrown = pinsThrown;
     }
 
-    public static Shot FromChar(char c)
+    public static Shot FromScalar(int pinsThrown)
     {
-        return new Shot(c);
+        return new Shot(pinsThrown);
+    }
+    
+    public static implicit operator int(Shot shot)
+    {
+        return shot.PinsThrown;
     }
 
-    public int Score()
+    public static explicit operator Shot(int value)
     {
-        int ballScore;
-        
-        if (_value == BowlingConstants.StrikeSymbol)
-            ballScore = 10;
-        else if (int.TryParse(_value.ToString(), out int aux))
-            ballScore = aux;
-        else
-            ballScore = 0;
-
-        return ballScore;
+        return new Shot(value);
     }
 
-    public bool IsStrike()
+    public static Shot FromStrike()
     {
-        return _value == BowlingConstants.StrikeSymbol;
-    }
-
-    public bool IsSpare()
-    {
-        return _value == BowlingConstants.SpareSymbol;
-    }
-
-    public bool IsANumberOfPins()
-    {
-        if (IsStrike() || IsSpare())
-            return false;
-
-        return true;
+        return new Shot(10);
     }
 }

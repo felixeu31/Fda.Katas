@@ -14,27 +14,52 @@ internal class Frame
     
     public void AddShot(char shotValue)
     {
-        if(_shot1 == null)
-            _shot1 = Shot.FromChar(shotValue);
+        if (_shot1 == null)
+        {
+            if (shotValue == BowlingConstants.StrikeSymbol)
+                _shot1 = Shot.FromStrike();
+            else if(int.TryParse(shotValue.ToString(), out int aux))
+                _shot1 = Shot.FromScalar(aux);
+            else
+                throw new Exception("First shot could not be registered in frame");
+        }
         else if (_shot2 == null)
-            _shot2 = Shot.FromChar(shotValue);
+        {
+            if (shotValue == BowlingConstants.SpareSymbol)
+                _shot2 = Shot.FromScalar(RemainingPins());
+            else if(int.TryParse(shotValue.ToString(), out int aux))
+                _shot2 = Shot.FromScalar(aux);
+            else
+                throw new Exception("Second shot could not be registered in frame");
+        }
         else
-            throw new Exception("Could not be registered in frame");
+            throw new Exception("Shot could not be registered in frame");
     }
-    
+
+    private int RemainingPins()
+    {
+        return BowlingConstants.TotalNumberOfPins
+               - (_shot1?.PinsThrown).GetValueOrDefault()
+               - (_shot2?.PinsThrown).GetValueOrDefault();
+    }
+
     public int Score()
     {
-        if (_shot1 != null && _shot1.IsStrike())
-            return BowlingConstants.TotalNumberOfPins;
-        
-        if (_shot2 != null && _shot2.IsSpare())
-            return BowlingConstants.TotalNumberOfPins;
-        
-        return (_shot1?.Score()).GetValueOrDefault() + (_shot2?.Score()).GetValueOrDefault();
+        return (_shot1?.PinsThrown).GetValueOrDefault() + (_shot2?.PinsThrown).GetValueOrDefault();
     }
 
     public bool IsCompleted()
     {
         return _shot1 != null && _shot2 != null;
+    }
+
+    public bool IsStrike()
+    {
+        return _shot1 != null && _shot1.PinsThrown == 10;
+    }
+
+    public bool IsSpare()
+    {
+        return RemainingPins() == 0 && _shot2 != null;
     }
 }
