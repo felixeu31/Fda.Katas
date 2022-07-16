@@ -38,3 +38,13 @@ Doing so I think a shot should only know how many pins have it thrown, and nothi
 - I rewrite shot tests to create shots from scalar. Then when I refactor the Shot constructor, then all breaks apart. Frame depends on shots constructors to function properly, so all frame tests stopped working
 
 > Is it something wrong with my progress? a faulty design? 
+
+- I fix one test at a time and keep moving forward till all return to green
+
+## ..End of session. Next Steps:
+
+- Refactor frame class to have a list of shots
+- Include tests in frame to avoid strikes on second shot
+- Include functionality of several frames
+- Include functionality of sum next shoots to a strike or a spare
+- Include functionality to final frame wich will be special
