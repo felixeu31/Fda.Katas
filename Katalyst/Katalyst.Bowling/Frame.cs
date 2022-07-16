@@ -17,7 +17,7 @@ internal class Frame
         if (_shot1 == null)
         {
             if (shotValue == BowlingConstants.StrikeSymbol)
-                _shot1 = Shot.FromStrike();
+                _shot1 = Shot.FromScalar(BowlingConstants.TotalNumberOfPins);
             else if(int.TryParse(shotValue.ToString(), out int aux))
                 _shot1 = Shot.FromScalar(aux);
             else

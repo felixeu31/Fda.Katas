@@ -26,9 +26,4 @@ public class Shot
     {
         return new Shot(value);
     }
-
-    public static Shot FromStrike()
-    {
-        return new Shot(10);
-    }
 }

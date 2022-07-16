@@ -17,18 +17,12 @@ public class ShotTests
     }
 
     [Test]
-    public void Shot_ValidNumberOfPins_CreateValidShot()
+    [TestCase(3)]
+    [TestCase(10)]
+    public void Shot_ValidNumberOfPins_CreateValidShot(int pinsInput)
     {
-        var shot = Shot.FromScalar(3);
+        var shot = Shot.FromScalar(pinsInput);
 
-        ((int)shot).Should().Be(3);
-    }
-    
-    [Test]
-    public void Shot_Strike_CreateValidShot()
-    {
-        var shot = Shot.FromStrike();
-
-        ((int)shot).Should().Be(10);
+        ((int)shot).Should().Be(pinsInput);
     }
 }

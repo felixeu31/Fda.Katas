@@ -73,4 +73,16 @@ public class FrameTests
         frame.IsSpare().Should().BeTrue();
     }
     
+    
+    
+    [Test]
+    public void Frame_WithStrike_ScoresTen()
+    {
+        var frame = new Frame(1);
+
+        frame.AddShot('x');
+
+        frame.Score().Should().Be(10);
+    }
+    
 }
