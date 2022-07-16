@@ -2,23 +2,47 @@
 
 public class BowlingGame
 {
-    private List<BallPlay> BallPlays = new List<BallPlay>();
+    private readonly List<Frame> _frames;
 
-    public void Roll(char c)
+    public BowlingGame()
     {
-        BallPlays.Add(BallPlay.FromChar(c));
+        _frames = new ();
+    }
+    public void AddShot(char shotValue)
+    {
+        var frame = GetCurrentFrame();
+
+        if (frame == null)
+        {
+            frame = AddNewFrame();
+        }
+        
+        frame.AddShot(shotValue);
     }
 
-    public void Roll(string c)
+    public void AddShots(string playValue)
     {
-        foreach (var pinCount in c)
+        foreach (var pinCount in playValue)
         {
-            Roll(pinCount);
+            AddShot(pinCount);
         }
     }
 
     public int Score()
     {
-        return BallPlays.Sum(x => x.Score());
+        return _frames.Sum(x => x.Score());
+    }
+    
+    
+    private Frame AddNewFrame()
+    {
+        Frame frame = new Frame();
+        _frames.Add(frame);
+        return frame;
+    }
+
+    private Frame GetCurrentFrame()
+    {
+        return _frames.FirstOrDefault(x => !x.IsCompleted());
     }
 }
