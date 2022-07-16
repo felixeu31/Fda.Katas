@@ -2,9 +2,16 @@
 
 internal class Frame
 {
+    public readonly int FrameNumber;
+
     private Shot _shot1;
     private Shot _shot2;
 
+    public Frame(int frameNumber)
+    {
+        FrameNumber = frameNumber;
+    }
+    
     public void AddShot(char shotValue)
     {
         if(_shot1 == null)

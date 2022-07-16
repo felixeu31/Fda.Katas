@@ -9,7 +9,7 @@ public class FrameTests
     [Test]
     public void RegularFrame_AddOneShot_ScoreIncrementsAccord()
     {
-        var frame = new Frame();
+        var frame = new Frame(1);
 
         frame.AddShot('3');
 
@@ -19,7 +19,7 @@ public class FrameTests
     [Test]
     public void RegularFrame_AddTwoShots_ScoreIncrementsAccord()
     {
-        var frame = new Frame();
+        var frame = new Frame(1);
 
         frame.AddShot('3');
         frame.AddShot('3');
@@ -30,7 +30,7 @@ public class FrameTests
     [Test]
     public void RegularFrame_AddTwoShots_IsCompleted()
     {
-        var frame = new Frame();
+        var frame = new Frame(1);
 
         frame.AddShot('3');
         frame.AddShot('3');
@@ -42,7 +42,7 @@ public class FrameTests
     [Test]
     public void RegularFrame_AddThreeShots_ThrowException()
     {
-        var frame = new Frame();
+        var frame = new Frame(1);
 
         frame.AddShot('3');
         frame.AddShot('3');

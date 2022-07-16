@@ -10,14 +10,14 @@ public class BowlingGame
     }
     public void AddShot(char shotValue)
     {
-        var frame = GetCurrentFrame();
+        var currentFrame = GetCurrentFrame();
 
-        if (frame == null)
+        if (currentFrame == null || currentFrame.IsCompleted())
         {
-            frame = AddNewFrame();
+            currentFrame = AddNewFrame(currentFrame);
         }
         
-        frame.AddShot(shotValue);
+        currentFrame.AddShot(shotValue);
     }
 
     public void AddShots(string playValue)
@@ -34,15 +34,18 @@ public class BowlingGame
     }
     
     
-    private Frame AddNewFrame()
+    private Frame AddNewFrame(Frame currentFrame)
     {
-        Frame frame = new Frame();
+        var nextFrameNumber = (currentFrame?.FrameNumber).GetValueOrDefault() + 1;
+        
+        Frame frame = new Frame(nextFrameNumber);
         _frames.Add(frame);
+        
         return frame;
     }
 
     private Frame GetCurrentFrame()
     {
-        return _frames.FirstOrDefault(x => !x.IsCompleted());
+        return _frames.OrderBy(x => x.FrameNumber).LastOrDefault();
     }
 }
