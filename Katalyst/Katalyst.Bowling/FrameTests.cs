@@ -108,4 +108,25 @@ public class FrameTests
         frame.Score().Should().Be(10);
     }
     
+    [Test]
+    public void Frame_WithStrike_IsCompleted()
+    {
+        var frame = new Frame(1);
+
+        frame.AddShot('x');
+
+        frame.IsCompleted().Should().BeTrue();
+    }
+    
+    
+    [Test]
+    public void Frame_InvalidShotSymbol_ThrowEx()
+    {
+        var frame = new Frame(1);
+
+        Action buildInvalidShot = () => frame.AddShot('X');
+
+        buildInvalidShot.Should().Throw<ArgumentOutOfRangeException>();
+    }
+    
 }

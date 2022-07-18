@@ -43,10 +43,11 @@ Doing so I think a shot should only know how many pins have it thrown, and nothi
 
 ## Some refactorings
 - Include tests in frame to avoid strikes on second shot
+- Include functionality of several frames
+- Include functionality of sum next shoots to a strike or a spare
 
 ## ..End of session. Next Steps:
 
-- Refactor frame class to have a list of shots
-- Include functionality of several frames
-- Include functionality of sum next shoots to a strike or a spare
+- ¿Refactor frame class to have a list of shots?
+
 - Include functionality to final frame wich will be special

@@ -22,15 +22,29 @@ public class BowlingGame
 
     public void AddShots(string playValue)
     {
-        foreach (var pinCount in playValue)
+        foreach (var frame in playValue.Split("|"))
         {
-            AddShot(pinCount);
+            foreach (var shotSymbol in frame)
+            {
+                AddShot(shotSymbol);
+            }
         }
     }
 
     public int Score()
     {
-        return _frames.Sum(x => x.Score());
+        int sum = 0;
+        
+        foreach (var frame in _frames)
+        {
+            IEnumerable<Shot> followingShots = _frames
+                .Where(x => x.FrameNumber > frame.FrameNumber)
+                .SelectMany(x => x.Shots());
+            
+            sum += frame.Score(followingShots);
+        }
+
+        return sum;
     }
     
     

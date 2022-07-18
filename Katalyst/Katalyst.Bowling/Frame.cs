@@ -14,6 +14,8 @@ internal class Frame
     
     public void AddShot(char shotValue)
     {
+        ValidateShotSymbol(shotValue);
+        
         if (_shot1 == null)
         {
             if (shotValue == BowlingConstants.StrikeSymbol)
@@ -36,6 +38,14 @@ internal class Frame
             throw new Exception("Shot could not be registered in frame");
     }
 
+    private void ValidateShotSymbol(char shotValue)
+    {
+        if(shotValue != BowlingConstants.StrikeSymbol 
+           && shotValue != BowlingConstants.SpareSymbol 
+           && !int.TryParse(shotValue.ToString(), out int aux))
+            throw new ArgumentOutOfRangeException();
+    }
+
     private int RemainingPins()
     {
         return BowlingConstants.TotalNumberOfPins
@@ -43,14 +53,23 @@ internal class Frame
                - (_shot2?.PinsThrown).GetValueOrDefault();
     }
 
-    public int Score()
+    public int Score(IEnumerable<Shot> followingShots = null)
     {
-        return (_shot1?.PinsThrown).GetValueOrDefault() + (_shot2?.PinsThrown).GetValueOrDefault();
+        
+        var framePinsThrown = (_shot1?.PinsThrown).GetValueOrDefault() + (_shot2?.PinsThrown).GetValueOrDefault();
+        
+        if (IsSpare())
+            return framePinsThrown + (followingShots?.Take(1).Sum(x => x?.PinsThrown)).GetValueOrDefault();
+        
+        if (IsStrike())
+            return framePinsThrown + (followingShots?.Take(2).Sum(x => x?.PinsThrown)).GetValueOrDefault();
+
+        return framePinsThrown;
     }
 
     public bool IsCompleted()
     {
-        return _shot1 != null && _shot2 != null;
+        return _shot1 != null && (IsStrike() || _shot2 != null);
     }
 
     public bool IsStrike()
@@ -61,5 +80,18 @@ internal class Frame
     public bool IsSpare()
     {
         return RemainingPins() == 0 && _shot2 != null;
+    }
+
+    public IEnumerable<Shot> Shots()
+    {
+        var shots = new List<Shot>();
+        
+        if(_shot1 != null)
+            shots.Add(_shot1);
+        
+        if(_shot2 != null)
+            shots.Add(_shot2);
+
+        return shots;
     }
 }
