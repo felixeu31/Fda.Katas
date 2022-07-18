@@ -42,7 +42,7 @@ internal class Frame
     {
         if(shotValue != BowlingConstants.StrikeSymbol 
            && shotValue != BowlingConstants.SpareSymbol 
-           && !int.TryParse(shotValue.ToString(), out int aux))
+           && !int.TryParse(shotValue.ToString(), out _))
             throw new ArgumentOutOfRangeException();
     }
 
