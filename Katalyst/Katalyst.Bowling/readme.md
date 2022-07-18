@@ -41,10 +41,12 @@ Doing so I think a shot should only know how many pins have it thrown, and nothi
 
 - I fix one test at a time and keep moving forward till all return to green
 
+## Some refactorings
+- Include tests in frame to avoid strikes on second shot
+
 ## ..End of session. Next Steps:
 
 - Refactor frame class to have a list of shots
-- Include tests in frame to avoid strikes on second shot
 - Include functionality of several frames
 - Include functionality of sum next shoots to a strike or a spare
 - Include functionality to final frame wich will be special

@@ -53,7 +53,7 @@ public class FrameTests
     }
     
     [Test]
-    public void Frame_IsStrike_When10PinsDownWithOneShot()
+    public void Frame_When10PinsDownWithOneShot_IsStrike()
     {
         var frame = new Frame(1);
         
@@ -61,9 +61,32 @@ public class FrameTests
         
         frame.IsStrike().Should().BeTrue();
     }
+    
+    
+    [Test]
+    public void Frame_WhenStrikeSymbolInSecondShot_ThrowEx()
+    {
+        var frame = new Frame(1);
+        
+        frame.AddShot('3');
+        Action buildInvalidShot = () => frame.AddShot('x');
+
+        buildInvalidShot.Should().Throw<Exception>();
+    }
+    
+    
+    [Test]
+    public void Frame_WhenSpareSymbolInSecondShot_ThrowEx()
+    {
+        var frame = new Frame(1);
+        
+        Action buildInvalidShot = () => frame.AddShot('/');
+
+        buildInvalidShot.Should().Throw<Exception>();
+    }
 
     [Test]
-    public void Shot_IsSpare_WhenBackslash()
+    public void Shot_WhenBackslash_IsSpare()
     {
         var frame = new Frame(1);
         
