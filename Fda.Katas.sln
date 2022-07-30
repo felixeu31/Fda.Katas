@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Katalyst", "Katalyst", "{82
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Codewars", "Codewars", "{0370983C-6171-48A6-AB3B-6DFFE23E0A36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.PasswordValidation", "Fda.Katas.PasswordValidation\Fda.Katas.PasswordValidation.csproj", "{F18946E3-26C4-4479-935B-46644674163A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{9215329A-EF03-43FE-81EA-ED200472E0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9215329A-EF03-43FE-81EA-ED200472E0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9215329A-EF03-43FE-81EA-ED200472E0E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18946E3-26C4-4479-935B-46644674163A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18946E3-26C4-4479-935B-46644674163A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18946E3-26C4-4479-935B-46644674163A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18946E3-26C4-4479-935B-46644674163A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 		{A2BE396E-F46C-43DD-8452-C43724518212} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
 		{BCC083CC-6E50-4014-A3A2-A8163817CA47} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
 		{FC24D7F7-3623-4D28-8111-D0F9617764D9} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
+		{F18946E3-26C4-4479-935B-46644674163A} = {82164206-615B-4579-A436-A4695941CD52}
 	EndGlobalSection
 EndGlobal
