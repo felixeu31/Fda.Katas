@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.RomanNumeralsEnco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.MultiplesOf3Or5", "Fda.Katas.MultiplesOf3Or5\Fda.Katas.MultiplesOf3Or5.csproj", "{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fda.Katas.FindAnagrams", "Fda.Katas.FindAnagrams\Fda.Katas.FindAnagrams.csproj", "{30592174-5D0E-45EE-AE6E-E3661B7EC5E1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +45,10 @@ Global
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828618AC-F4B6-41E7-9CB8-E2F53EC0EF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828618AC-F4B6-41E7-9CB8-E2F53EC0EF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828618AC-F4B6-41E7-9CB8-E2F53EC0EF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828618AC-F4B6-41E7-9CB8-E2F53EC0EF91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30592174-5D0E-45EE-AE6E-E3661B7EC5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30592174-5D0E-45EE-AE6E-E3661B7EC5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30592174-5D0E-45EE-AE6E-E3661B7EC5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
