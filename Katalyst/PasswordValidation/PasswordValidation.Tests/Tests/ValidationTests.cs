@@ -68,14 +68,14 @@ public class ValidationTests
     }
 
     [Test]
-    public void UnderScoreCaseValidation_Invalid_WhenMissingCapitalLetter()
+    public void UnderScoreCaseValidation_Invalid_WhenMissingUnderScore()
     {
         var validation = new UnderScoreCaseValidation();
 
         validation.IsValid("password").Should().BeFalse();
     }
     [Test]
-    public void UnderScoreCaseValidation_Valid_WhenCapitalLetter()
+    public void UnderScoreCaseValidation_Valid_WhenUnderScore()
     {
         var validation = new UnderScoreCaseValidation();
 

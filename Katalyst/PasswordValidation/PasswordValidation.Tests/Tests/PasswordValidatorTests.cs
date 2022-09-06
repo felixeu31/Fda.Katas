@@ -11,7 +11,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Invalid_WhenNotMinimumCharacters()
+    public void PasswordValidator1_Invalid_WhenNotMinimumCharacters()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -19,7 +19,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Invalid_WhenMissingCapitalLetter()
+    public void PasswordValidator1_Invalid_WhenMissingCapitalLetter()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -27,7 +27,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Invalid_WhenMissingLowecase()
+    public void PasswordValidator1_Invalid_WhenMissingLowecase()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -35,7 +35,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Invalid_WhenMissingNumber()
+    public void PasswordValidator1_Invalid_WhenMissingNumber()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -43,7 +43,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Invalid_WhenMissingUnderscore()
+    public void PasswordValidator1_Invalid_WhenMissingUnderscore()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -51,7 +51,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop1_Valid_WhenValidPassword()
+    public void PasswordValidator1_Valid_WhenValidPassword()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
@@ -59,7 +59,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop2_Valid_WhenValidPassword()
+    public void PasswordValidator2_Valid_WhenValidPassword()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation2();
 
@@ -67,7 +67,7 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidatorOop3_Valid_WhenValidPassword()
+    public void PasswordValidator3_Valid_WhenValidPassword()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation3();
 
