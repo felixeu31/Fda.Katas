@@ -1,16 +1,16 @@
-﻿using Fda.Katas.PasswordValidation.Validations;
+﻿using PasswordValidation.Validations;
 
-namespace Fda.Katas.PasswordValidation;
+namespace PasswordValidation.Model;
 
-public class PasswordValidatorOop
+public class PasswordValidator
 {
     private readonly List<IValidation> _validations;
-    
-    public PasswordValidatorOop(List<IValidation> validations)
+
+    public PasswordValidator(List<IValidation> validations)
     {
         _validations = validations;
     }
-    
+
     public bool IsValid(string input)
     {
         return _validations.All(v => v.IsValid(input));

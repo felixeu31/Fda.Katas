@@ -1,4 +1,4 @@
-﻿namespace Fda.Katas.PasswordValidation.Validations;
+﻿namespace PasswordValidation.Validations;
 
 public interface IValidation
 {

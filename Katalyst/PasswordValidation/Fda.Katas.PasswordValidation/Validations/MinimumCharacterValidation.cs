@@ -1,4 +1,4 @@
-﻿namespace Fda.Katas.PasswordValidation.Validations;
+﻿namespace PasswordValidation.Validations;
 
 public class MinimumCharacterValidation : IValidation
 {
@@ -8,7 +8,7 @@ public class MinimumCharacterValidation : IValidation
     {
         _minimumNumber = minimumNumber;
     }
-    
+
     public bool IsValid(string input)
     {
         return input.Length >= 8;

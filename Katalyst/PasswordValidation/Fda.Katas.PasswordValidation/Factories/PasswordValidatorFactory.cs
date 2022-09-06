@@ -1,12 +1,13 @@
-﻿using Fda.Katas.PasswordValidation.Validations;
+﻿using PasswordValidation.Model;
+using PasswordValidation.Validations;
 
-namespace Fda.Katas.PasswordValidation.Factories;
+namespace PasswordValidation.Factories;
 
 public class PasswordValidatorFactory
 {
-    public static PasswordValidatorOop BuildValidation1()
+    public static PasswordValidator BuildValidation1()
     {
-        return new PasswordValidatorOop(new List<IValidation>()
+        return new PasswordValidator(new List<IValidation>()
         {
             new MinimumCharacterValidation(8),
             new UpperCaseValidation(),
@@ -15,9 +16,9 @@ public class PasswordValidatorFactory
             new UnderScoreCaseValidation()
         });
     }
-    public static PasswordValidatorOop BuildValidation2()
+    public static PasswordValidator BuildValidation2()
     {
-        return new PasswordValidatorOop(new List<IValidation>()
+        return new PasswordValidator(new List<IValidation>()
         {
             new MinimumCharacterValidation(6),
             new UpperCaseValidation(),
@@ -25,9 +26,9 @@ public class PasswordValidatorFactory
             new NumberCaseValidation()
         });
     }
-    public static PasswordValidatorOop BuildValidation3()
+    public static PasswordValidator BuildValidation3()
     {
-        return new PasswordValidatorOop(new List<IValidation>()
+        return new PasswordValidator(new List<IValidation>()
         {
             new MinimumCharacterValidation(16),
             new UpperCaseValidation(),
