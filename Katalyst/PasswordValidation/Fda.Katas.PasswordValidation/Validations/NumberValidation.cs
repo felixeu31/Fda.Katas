@@ -1,13 +1,13 @@
-﻿namespace Fda.Katas.PasswordValidation.Validations;
+﻿namespace PasswordValidation.Validations;
 
 public class NumberCaseValidation : IValidation
 {
     public NumberCaseValidation()
     {
     }
-    
+
     public bool IsValid(string input)
     {
-        return input.Any(c => Char.IsNumber(c));
+        return input.Any(c => char.IsNumber(c));
     }
 }
