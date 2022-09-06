@@ -15,11 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fda.Katas.RomanNumeralsEnco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fda.Katas.MultiplesOf3Or5", "Fda.Katas.MultiplesOf3Or5\Fda.Katas.MultiplesOf3Or5.csproj", "{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Katalyst", "Katalyst", "{82164206-615B-4579-A436-A4695941CD52}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Codewars", "Codewars", "{0370983C-6171-48A6-AB3B-6DFFE23E0A36}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fda.Katas.PasswordValidation", "Fda.Katas.PasswordValidation\Fda.Katas.PasswordValidation.csproj", "{F18946E3-26C4-4479-935B-46644674163A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +47,6 @@ Global
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F18946E3-26C4-4479-935B-46644674163A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F18946E3-26C4-4479-935B-46644674163A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F18946E3-26C4-4479-935B-46644674163A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F18946E3-26C4-4479-935B-46644674163A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +58,6 @@ Global
 		{AAEF6C68-730B-4B26-99E7-2B8A68751C19} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
 		{A2BE396E-F46C-43DD-8452-C43724518212} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
 		{59CC1B6F-AAB7-4CA2-8F50-E48E46FBED8D} = {0370983C-6171-48A6-AB3B-6DFFE23E0A36}
-		{F18946E3-26C4-4479-935B-46644674163A} = {82164206-615B-4579-A436-A4695941CD52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {308B0862-4DEF-4669-A43C-280102235623}
