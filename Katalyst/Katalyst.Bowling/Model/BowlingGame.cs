@@ -1,8 +1,11 @@
-﻿namespace Katalyst.Bowling;
+﻿using FluentAssertions;
+
+namespace Katalyst.Bowling;
 
 public class BowlingGame
 {
     private readonly List<Frame> _frames;
+    private Bonus _bonus;
 
     public BowlingGame()
     {
@@ -10,24 +13,45 @@ public class BowlingGame
     }
     public void AddShot(char shotValue)
     {
-        var currentFrame = GetCurrentFrame();
+        var currentFrame = MustStartNewFramework() ? StartNewFrame() : GetCurrentFrame();  
 
-        if (currentFrame == null || currentFrame.IsCompleted())
+        if (AreRegularFramesCompleted())
         {
-            currentFrame = AddNewFrame(currentFrame);
+            if (_bonus == null)
+                _bonus = new Bonus(currentFrame.IsStrike() ? 2 : currentFrame.IsSpare() ? 1 : 0);
+            
+            _bonus.AddShot(shotValue);
         }
-        
-        currentFrame.AddShot(shotValue);
+        else
+            currentFrame.AddShot(shotValue);
+    }
+
+    private bool AreRegularFramesCompleted()
+    {
+        return _frames.Count(x => x.IsCompleted()) == 10;
+    }
+
+    private bool MustStartNewFramework()
+    {
+        Frame? currentFrame = GetCurrentFrame();
+        return (currentFrame == null || currentFrame.IsCompleted()) && _frames.Count < 10;
     }
 
     public void AddShots(string playValue)
     {
-        foreach (var frame in playValue.Split("|"))
+        // foreach (var frame in playValue.Split("|"))
+        // {
+        //     foreach (var shotSymbol in frame)
+        //     {
+        //         AddShot(shotSymbol);
+        //     }
+        // }
+
+        var shotSymbols = playValue.Replace("|", string.Empty).ToArray();
+
+        foreach (var shotSymbol in shotSymbols)
         {
-            foreach (var shotSymbol in frame)
-            {
-                AddShot(shotSymbol);
-            }
+            AddShot(shotSymbol);
         }
     }
 
@@ -39,8 +63,9 @@ public class BowlingGame
         {
             IEnumerable<Shot> followingShots = _frames
                 .Where(x => x.FrameNumber > frame.FrameNumber)
-                .SelectMany(x => x.Shots());
-            
+                .SelectMany(x => x.Shots())
+                .Union(_bonus?.Shots() ?? new List<Shot>());
+
             sum += frame.Score(followingShots);
         }
 
@@ -48,9 +73,9 @@ public class BowlingGame
     }
     
     
-    private Frame AddNewFrame(Frame currentFrame)
+    private Frame StartNewFrame()
     {
-        var nextFrameNumber = (currentFrame?.FrameNumber).GetValueOrDefault() + 1;
+        var nextFrameNumber = (GetCurrentFrame()?.FrameNumber).GetValueOrDefault() + 1;
         
         Frame frame = new Frame(nextFrameNumber);
         _frames.Add(frame);
@@ -58,8 +83,8 @@ public class BowlingGame
         return frame;
     }
 
-    private Frame GetCurrentFrame()
+    private Frame? GetCurrentFrame()
     {
-        return _frames.OrderBy(x => x.FrameNumber).LastOrDefault();
+        return _frames.MaxBy(x => x.FrameNumber);
     }
 }

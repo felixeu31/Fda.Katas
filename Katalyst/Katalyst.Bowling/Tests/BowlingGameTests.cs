@@ -62,6 +62,7 @@ public class BowlingGameTests
     
     [Test]
     [TestCase("x|x|21", 38)]
+    [TestCase("2/|x|x|9/|11", 82)]
     public void BowlingGame_WitStrikeFrames_GetsScore(string rollCount, int expectedScore)
     {
         var game = new BowlingGame();
@@ -71,14 +72,14 @@ public class BowlingGameTests
         game.Score().Should().Be(expectedScore);
     }
     
-    // [Test]
-    // [TestCase("X|X|X|X|X|X|X|X|X|X||XX", 38)]
-    // public void BowlingGame_CompleteGames_GetsScore(string rollCount, int expectedScore)
-    // {
-    //     var game = new BowlingGame();
-    //
-    //     game.AddShots(rollCount);
-    //
-    //     game.Score().Should().Be(expectedScore);
-    // }
+    [Test]
+    [TestCase("x|x|x|x|x|x|x|x|x|x||xx", 300)]
+    public void BowlingGame_CompleteGames_GetsScore(string rollCount, int expectedScore)
+    {
+        var game = new BowlingGame();
+    
+        game.AddShots(rollCount);
+    
+        game.Score().Should().Be(expectedScore);
+    }
 }
