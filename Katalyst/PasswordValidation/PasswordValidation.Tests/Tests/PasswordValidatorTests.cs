@@ -15,7 +15,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("short").Should().BeFalse();
+        passwordValidator.Validate("short").IsValid.Should().BeFalse();
     }
 
     [Test]
@@ -23,7 +23,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("passwordwithoutcapital").Should().BeFalse();
+        passwordValidator.Validate("passwordwithoutcapital").IsValid.Should().BeFalse();
     }
 
     [Test]
@@ -31,7 +31,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("PASSWORDMISSINGLOWERCASE").Should().BeFalse();
+        passwordValidator.Validate("PASSWORDMISSINGLOWERCASE").IsValid.Should().BeFalse();
     }
 
     [Test]
@@ -39,7 +39,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("Passwordmissingnumber").Should().BeFalse();
+        passwordValidator.Validate("Passwordmissingnumber").IsValid.Should().BeFalse();
     }
 
     [Test]
@@ -47,7 +47,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("Passwordmissingundescore9").Should().BeFalse();
+        passwordValidator.Validate("Passwordmissingundescore9").IsValid.Should().BeFalse();
     }
 
     [Test]
@@ -55,7 +55,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.IsValid("Passwordwithcapital_1").Should().BeTrue();
+        passwordValidator.Validate("Passwordwithcapital_1").IsValid.Should().BeTrue();
     }
 
     [Test]
@@ -63,7 +63,7 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation2();
 
-        passwordValidator.IsValid("Passwordwithcapital1").Should().BeTrue();
+        passwordValidator.Validate("Passwordwithcapital1").IsValid.Should().BeTrue();
     }
 
     [Test]
@@ -71,6 +71,6 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation3();
 
-        passwordValidator.IsValid("Passwordwithcapital_").Should().BeTrue();
+        passwordValidator.Validate("Passwordwithcapital_").IsValid.Should().BeTrue();
     }
 }

@@ -11,8 +11,22 @@ public class PasswordValidator
         _validations = validations;
     }
 
-    public bool IsValid(string input)
+    public ValidationResult Validate(string input)
     {
-        return _validations.All(v => v.IsValid(input));
+        return new ValidationResult()
+        {
+            ErrorMessages = _validations.Where(v => !v.IsValid(input)).Select(x => "validation error").ToList()
+        };
+        //return _validations.All(v => v.IsValid(input));
     }
+}
+
+public class ValidationResult
+{
+    public ValidationResult()
+    {
+        ErrorMessages = new List<string>();
+    }
+    public bool IsValid => ErrorMessages.Count == 0;
+    public List<string> ErrorMessages { get; set; }
 }
