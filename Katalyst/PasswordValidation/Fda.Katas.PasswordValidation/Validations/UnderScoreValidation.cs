@@ -10,4 +10,6 @@ public class UnderScoreCaseValidation : IValidation
     {
         return input.Any(c => c.Equals('_'));
     }
+    public string Message => "Password must have at least one underscore";
+
 }

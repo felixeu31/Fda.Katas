@@ -47,7 +47,9 @@ public class PaswordValidatorTests
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation1();
 
-        passwordValidator.Validate("Passwordmissingundescore9").IsValid.Should().BeFalse();
+        var validationResult = passwordValidator.Validate("Passwordmissingundescore9");
+
+        validationResult.IsValid.Should().BeFalse();
     }
 
     [Test]

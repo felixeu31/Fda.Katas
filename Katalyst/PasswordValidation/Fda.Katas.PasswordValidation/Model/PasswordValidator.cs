@@ -15,9 +15,8 @@ public class PasswordValidator
     {
         return new ValidationResult()
         {
-            ErrorMessages = _validations.Where(v => !v.IsValid(input)).Select(x => "validation error").ToList()
+            ErrorMessages = _validations.Where(v => !v.IsValid(input)).Select(x => x.Message).ToList()
         };
-        //return _validations.All(v => v.IsValid(input));
     }
 }
 
