@@ -11,6 +11,8 @@ public class MinimumCharacterValidation : IValidation
 
     public bool IsValid(string input)
     {
-        return input.Length >= 8;
+        return input.Length >= _minimumNumber;
     }
+    public string Message => $"Password must have at least {_minimumNumber} characters";
+
 }

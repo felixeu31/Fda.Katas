@@ -10,4 +10,6 @@ public class LowerCaseValidation : IValidation
     {
         return input.Any(c => char.IsLower(c));
     }
+
+    public string Message => "Password must have at least one lower case";
 }

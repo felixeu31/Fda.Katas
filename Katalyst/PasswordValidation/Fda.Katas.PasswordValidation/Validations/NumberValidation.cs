@@ -10,4 +10,7 @@ public class NumberCaseValidation : IValidation
     {
         return input.Any(c => char.IsNumber(c));
     }
+
+    public string Message => "Password must have at least one number";
+
 }

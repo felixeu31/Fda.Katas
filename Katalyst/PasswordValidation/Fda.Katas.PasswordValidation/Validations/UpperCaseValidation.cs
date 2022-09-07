@@ -10,4 +10,6 @@ public class UpperCaseValidation : IValidation
     {
         return input.Any(c => char.IsUpper(c));
     }
+    public string Message => "Password must have at least one upper case";
+
 }
