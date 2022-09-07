@@ -47,3 +47,12 @@ As the KATA has 2 iterations I decided to do a simpler solution and then improve
 - Then I followed TDD creating test and separated implementations for each validation
 - Then I rewritted the PasswordValidatorTestsOop to test the new implementation of the PasswordValidatorOop usin the news validations
 - Then I created a Factory class to build different PasswordValidations with specific validations
+- Then I created a Builder class
+- Then I refactor some methods ensuring all tests pass
+
+## Iteration 3
+- Add the output error messages to the validation result
+- Realize that I had to change all test that validates validation resutls
+
+## Iteration 4
+- Add permitted errors feature
