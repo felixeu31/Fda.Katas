@@ -33,4 +33,15 @@ public class PasswordValidatorFactory
             .WithUnderScoreCaseValidation()
             .Build();
     }
+
+    public static PasswordValidator BuildValidation4()
+    {
+        return new PasswordValidatorBuilder()
+            .WithPermittedErrors(1)
+            .WithMinimumCharacterValidation(16)
+            .WithUpperCaseValidation()
+            .WithLowerCaseValidation()
+            .WithUnderScoreCaseValidation()
+            .Build();
+    }
 }

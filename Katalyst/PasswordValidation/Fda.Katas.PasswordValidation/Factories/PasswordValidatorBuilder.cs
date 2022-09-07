@@ -11,6 +11,7 @@ namespace PasswordValidation.Factories
     public class PasswordValidatorBuilder
     {
         private readonly List<IValidation> _validations;
+        private int _permittedErrors = 0;
 
         public PasswordValidatorBuilder()
         {
@@ -54,7 +55,13 @@ namespace PasswordValidation.Factories
 
         public PasswordValidator Build()
         {
-            return new PasswordValidator(_validations);
+            return new PasswordValidator(_validations, _permittedErrors);
+        }
+
+        public PasswordValidatorBuilder WithPermittedErrors(int permittedErrors)
+        {
+            this._permittedErrors = permittedErrors;
+            return this;
         }
     }
 }

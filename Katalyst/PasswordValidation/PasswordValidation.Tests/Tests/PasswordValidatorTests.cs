@@ -75,4 +75,14 @@ public class PaswordValidatorTests
 
         passwordValidator.Validate("Passwordwithcapital_").IsValid.Should().BeTrue();
     }
+
+    [Test]
+    public void PasswordValidator4_Valid_WhenJustOneErrorMissingUnderscore()
+    {
+        var passwordValidator = PasswordValidatorFactory.BuildValidation4();
+
+        var validationResult = passwordValidator.Validate("Passwordmissingundescore9");
+
+        validationResult.IsValid.Should().BeTrue();
+    }
 }
