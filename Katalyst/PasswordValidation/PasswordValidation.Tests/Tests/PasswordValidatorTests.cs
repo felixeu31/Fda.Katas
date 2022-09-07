@@ -77,12 +77,23 @@ public class PaswordValidatorTests
     }
 
     [Test]
-    public void PasswordValidator4_Valid_WhenJustOneErrorMissingUnderscore()
+    public void PasswordValidator4_Valid_WhenJustOneError()
     {
         var passwordValidator = PasswordValidatorFactory.BuildValidation4();
 
         var validationResult = passwordValidator.Validate("Passwordmissingundescore9");
 
         validationResult.IsValid.Should().BeTrue();
+    }
+
+
+    [Test]
+    public void PasswordValidator4_Fails_WhenTwoErrors()
+    {
+        var passwordValidator = PasswordValidatorFactory.BuildValidation4();
+
+        var validationResult = passwordValidator.Validate("passwordmissingundescoreanduppercase9");
+
+        validationResult.IsValid.Should().BeFalse();
     }
 }
